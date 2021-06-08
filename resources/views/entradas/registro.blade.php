@@ -42,7 +42,7 @@
           <option value="Recepcion">Recepcion</option>
           <option value="Consultorio">Consultorio</option>
           <option value="Recursos Humanos">Recursos Humanos</option>
-          <option value="Apoyo">Apoyo</option>
+          <option value="Trabajo Social">Trabajo Social</option>
         </select>
       </div>
       <div class="m-auto mb-2 w-50">

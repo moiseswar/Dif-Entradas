@@ -234,9 +234,13 @@ return [
             'can'  => 'manage-blog', 
         ],
         [
+            'text'        => 'Registro de entradas',
+            'url'         => '/Entrada',
+            'icon'        => 'far fa-fw fa-registered',
+        ],
+        [
             'text'        => 'Entradas',
             'url'         => 'dash/Entradas',
-            'icon'        => 'far fa-fw fa-file',
         ],
         [
             'text'    => 'Trabajo Social',
@@ -266,8 +270,8 @@ return [
                     ],
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Entradas',
+                    'url'  => '/dash/TrabajoSocial/Entradas',
                 ],
             ],
         ],

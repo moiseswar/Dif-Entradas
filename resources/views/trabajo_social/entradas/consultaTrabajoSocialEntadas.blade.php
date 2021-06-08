@@ -25,7 +25,6 @@
         <th scope="col">Telefono</th>
         <th scope="col">Comunidad</th>
         <th scope="col">Motivo</th>
-        <th scope="col">Division</th>
         <th scope="col">Fecha</th>
         <th scope="col">Estado</th>
       </tr>
@@ -41,19 +40,18 @@
         <td>{{$Entradas->telefono}}</td>
         <td>{{$Entradas->comunidad}}</td>
         <td>{{$Entradas->motivo}}</td>
-        <td>{{$Entradas->Division}}</td>
         <td>{{$Entradas->created_at}}</td>
         @if ($Entradas->status == 1)
-            <td style="background-color: rgb(248, 114, 114);">
-            <form action={{route('entradas.statusuptd', $Entradas->id)}} class="m-auto" method="POST">
-                <input type="number" value="3" hidden name="txt-status">
-                <button type="submit" class="btn btn-warning">Terminar</button>
-            @csrf
-            </form>
-        </td> 
+          <td style="background-color: rgb(248, 114, 114);">
+           <form action={{route('entradas.statusuptd', $Entradas->id)}} class="m-auto" method="POST">
+             <input type="number" value="3" hidden name="txt-status">
+             <button type="submit" class="btn btn-warning">Terminar</button>
+             @csrf
+           </form>
+          </td> 
         @else
         <td style="background-color: rgb(148, 248, 114);">
-        </td> 
+        </td>
         @endif
   
       </tr>
@@ -72,7 +70,7 @@
 @stop
 
 @section('js')
-
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>

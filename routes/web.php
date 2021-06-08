@@ -25,7 +25,8 @@ Route::get('/Entrada', 'ControladorBDregistroEntradas@create')->name('vstregistr
 Route::post('/Entrada/Registradno', 'ControladorBDregistroEntradas@store')-> name('entradas.store');
    //Consultas
 Route::get('/dash/Entradas','ControladorBDEntradas@index')->name('entradas.index');
-
+Route::get('/dash/TrabajoSocial/Entradas','ControladorBDEntradas@entradasTrabajoSocial')->name('entradas.TrabajoSocial');
+Route::post('/dash/Entradas/ActStatus/{id}','ControladorBDEntradas@update')->name('entradas.statusuptd');
 //Desayunos
 Route::get('/dash/Desayunos/Registro', 'ControladorBDDesayunos@create')->name('vstregistroD');
 Route::post('/dash/Desayunos/Registro/Registrando', 'ControladorBDDesayunos@store')-> name('desayunos.store');

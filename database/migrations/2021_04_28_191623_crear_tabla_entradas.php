@@ -22,6 +22,7 @@ class CrearTablaEntradas extends Migration
             $table->string('comunidad');
             $table->string('motivo');
             $table->string('Division');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

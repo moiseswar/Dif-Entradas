@@ -20,6 +20,14 @@ class ControladorBDEntradas extends Controller
         $consultaEntradas = DB::table('entradas')->get();
         return view('entradas.consultaS', compact('consultaEntradas'));
     }
+    /**funcition que entrega las entradas con diferentes
+     * filtros para cada oficina
+     */
+    public function entradasTrabajoSocial()
+    {
+        $consultaEntradas = DB::table('entradas')->get()->where('Division', 'Trabajo Social');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +58,7 @@ class ControladorBDEntradas extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -73,7 +81,11 @@ class ControladorBDEntradas extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('entradas')->where('id', $id)->update([
+            "status" => $request-> input('txt-status'),
+            "updated_at" => Carbon::now(),
+        ]);
+        return redirect('/dash/Entradas')->with('data','Terminado');
     }
 
     /**
