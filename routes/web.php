@@ -27,6 +27,11 @@ Route::post('/Entrada/Registradno', 'ControladorBDregistroEntradas@store')-> nam
 Route::get('/dash/Entradas','ControladorBDEntradas@index')->name('entradas.index');
 Route::get('/dash/TrabajoSocial/Entradas','ControladorBDEntradas@entradasTrabajoSocial')->name('entradas.TrabajoSocial');
 Route::post('/dash/Entradas/ActStatus/{id}','ControladorBDEntradas@update')->name('entradas.statusuptd');
+
+//Comentarios
+Route::post('/dash/Entradas/ActStatus/{id}','ControladorBDEntradas@update')->name('entradas.statusuptd');
+Route::post('/dash/Entradas/Coments/update/{id}','ControladorBDEntradas@updateComent')->name('entradas.coments');
+Route::get('/dash/Entradas/Data/{id}','ControladorBDEntradas@show')->name('entradas.detalle');
 //Desayunos
 Route::get('/dash/Desayunos/Registro', 'ControladorBDDesayunos@create')->name('vstregistroD');
 Route::post('/dash/Desayunos/Registro/Registrando', 'ControladorBDDesayunos@store')-> name('desayunos.store');

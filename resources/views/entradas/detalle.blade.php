@@ -3,114 +3,58 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Registro de Entradas</h1>
+<h1>Datos de Entrada</h1>
 @stop
 
 @section('content')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if(session()->has('data'))
-{!! "<script>Swal.fire(
-  'Termiando',
-  'Proceso termiando',
-  'success'
-)</script>"!!}
-@endif
-<table id="entradas" class="table  m-auto">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido P.</th>
-        <th scope="col">Apellido M.</th>
-        <th scope="col">Telefono</th>
-        <th scope="col">Comunidad</th>
-        <th scope="col">Motivo</th>
-        <th scope="col">Fecha</th>
-        <th scope="col">Estado</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($consultaEntradas as $Entradas)
-      <tr>
-  
-        <th scope="row">{{$Entradas->id}}</th>
-        <td>{{$Entradas->nombre}}</td>
-        <td>{{$Entradas->apellido_p}}</td>
-        <td>{{$Entradas->apellido_m}}</td>
-        <td>{{$Entradas->telefono}}</td>
-        <td>{{$Entradas->comunidad}}</td>
-        <td>{{$Entradas->motivo}}</td>
-        <td>{{$Entradas->created_at}}</td>
-        @if ($Entradas->status == 1)
-            <td style="background-color: rgb(248, 114, 114);" class="text-center">
 
-                <form action={{route('entradas.statusuptd', $Entradas->id)}} method="POST">
-                    <input type="number" value="3" hidden name="txt-status">
-                    <button type="submit" class="btn btn-warning m-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
-                        </svg>
-                    </button>
-                    @csrf
-                </form>
+
+<div class="container">
+    <div class="row ">
+        <div class="col-3 border-info">
+           <label class="form-label">Nombre</label>
+           <p>{{$nmb = $entradaInfo->nombre.' '.$entradaInfo->apellido_p.' '.$entradaInfo->apellido_m}}</p>
+           <label>Telefono</label>
+           <p>{{$entradaInfo->telefono}}</p>
+           <label>Comunidad</label>
+           <p>{{$entradaInfo->comunidad}}</p>
+           <label>Motivo</label>
+           <p>{{$entradaInfo->motivo}}</p>
+           <label>Fecha y Hora</label>
+           <p>{{$entradaInfo->created_at}}</p>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-8  border-success  ">
+            <h2 class="text-center">Comentarios</h2>
+            <form action={{route('entradas.coments', $entradaInfo->id)}} method="post" class="form-control h-75">
+                @csrf
+                <input type="number" value="2" hidden name="txt-status">
+                <textarea class="form-control h-75" id="floatingTextarea" name="txt-coments">{{$entradaInfo->comentarios}}</textarea>
                 <br>
-                    <a href={{route('entradas.detalle',$Entradas->id)}}>
-                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modaledit" >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
-                            </svg>
-                        </button>
-                    </a>
-            </td>
-            @endif
-            @if ($Entradas->status == 2)
-            <td style="background-color: rgb(246, 248, 114);"  class="text-center">
-                <form action={{route('entradas.statusuptd', $Entradas->id)}} method="POST" >
-                    <input type="number" value="3" hidden name="txt-status">
-                    <button type="submit" class="btn btn-warning "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                        <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"/>
-                      </svg></button>
-                    @csrf
-                </form>
-                <br>
-                    <a href={{route('entradas.detalle',$Entradas->id)}} >
-                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modaledit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
-                            </svg>
-                        </button>
-                    </a>
-            </td>
-            @endif
-            @if($Entradas->status == 3)
-            <td style="background-color: rgb(121, 248, 114);">
-            </td>
-            @endif
-  
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
+                <button type="submit" class="btn btn-success">Comentar</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 @stop
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
-    <script>
-      $(document).ready( function () {
+<script>
+    $(document).ready( function () {
        $('#entradas').DataTable({
         dom: 'Bfrtip',
         buttons: [
@@ -300,5 +244,5 @@
     },
     "info": "Mostrando de _START_ a _END_ de _TOTAL_ entradas"
 } 
-    </script>
+</script>
 @stop

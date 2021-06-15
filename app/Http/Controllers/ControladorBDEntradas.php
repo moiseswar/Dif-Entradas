@@ -17,7 +17,9 @@ class ControladorBDEntradas extends Controller
      */
     public function index()
     {
-        $consultaEntradas = DB::table('entradas')->get();
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get();
         return view('entradas.consultaS', compact('consultaEntradas'));
     }
     /**funcition que entrega las entradas con diferentes
@@ -58,7 +60,10 @@ class ControladorBDEntradas extends Controller
      */
     public function show($id)
     {
-        
+        $entradaInfo = DB::table('entradas')
+        ->where('id', $id)
+        ->first();
+        return view('entradas.detalle', compact('entradaInfo'));
     }
 
     /**
@@ -69,7 +74,7 @@ class ControladorBDEntradas extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -86,6 +91,15 @@ class ControladorBDEntradas extends Controller
             "updated_at" => Carbon::now(),
         ]);
         return redirect('/dash/Entradas')->with('data','Terminado');
+    }
+    public function updateComent(Request $request, $id)
+    {
+        DB::table('entradas')->where('id', $id)->update([
+            "comentarios" => $request-> input('txt-coments'),
+            "status" => $request-> input('txt-status'),
+            "updated_at" => Carbon::now(),
+        ]);
+        return redirect('/dash/Entradas')->with('success','Terminado');
     }
 
     /**
