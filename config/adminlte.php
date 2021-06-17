@@ -233,6 +233,7 @@ return [
             'url'  => 'dash',
             'can'  => 'manage-blog', 
         ],
+        ['header' => 'Control de Entradas'],
         [
             'text'        => 'Registro de entradas',
             'url'         => '/Entrada',
@@ -319,6 +320,13 @@ return [
                 ],
             ],
         ],
+        ['header' => 'Pagina Principal'],
+        [
+            'text'        => 'Control de Imagenes',
+            'url'         => '/dash/Imagenes',
+            'icon'        => 'far fa-fw fa-registered',
+        ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',

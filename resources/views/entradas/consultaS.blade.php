@@ -31,6 +31,7 @@
 <table id="entradas" class="table  m-auto">
     <thead>
         <tr>
+            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido P.</th>
             <th scope="col">Telefono</th>
@@ -45,8 +46,8 @@
     <tbody>
         @foreach ($consultaEntradas as $Entradas)
         <tr>
-
-            <td scope="row">{{$Entradas->nombre}}</td>
+            <td scope="row">{{$Entradas->id}}</td>
+            <td >{{$Entradas->nombre}}</td>
             <td>{{$Entradas->apellido_p}}</td>
             <td>{{$Entradas->telefono}}</td>
             <td>{{$Entradas->comunidad}}</td>

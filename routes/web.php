@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/' , 'ControladorImgenesget@show')->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
@@ -41,3 +39,8 @@ Route::post('/dash/Desayunos/Padron/Actualizando/{id}', 'ControladorBDDesayunos@
 Route::delete('/dash/desayunos/Padron/Eliminando/{id}', 'ControladorBDDesayunos@destroy')->name('desayunos.delete');
 
 Route::get('/dash/RedMovil/Solicitudes','ControladorBDRedmovil@index')->name('redmovil.index');
+
+//Imagenes
+Route::get('/dash/Imagenes', 'ControladorImgenes@index')->name('imagenes.index');
+Route::post('/dash/Imagenes/Registrando', 'ControladorImgenes@store')-> name('imagenes.store');
+Route::post('/dash/Imagenes/eliminando/{id}', 'ControladorImgenes@destroy')-> name('imagenes.destroy');

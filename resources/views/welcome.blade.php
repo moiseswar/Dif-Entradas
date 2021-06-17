@@ -53,27 +53,28 @@
                 <a href="{{ route('vstregistro')}}"><Button class="btn btn-info btn-lg">Entrar</Button></a>
             </div>
               <h3>Revisa los programass disponibles </h3>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/Auditivo.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Dental.jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Optometrista.jpg" class="d-block w-100" alt="...">
-                    </div>
+                @forelse ($getimage as $image)
+                @if ($loop ->index ==0)active @endif
+                <div class="carousel-item @if ($loop ->index ==0) active @endif ">  
+                    <img src="{{asset($image->name)}}" class="d-block w-100 h-100" alt="...">
                 </div>
-            </div>
+                 
+                @empty
+                    
+                @endforelse
+                  
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            
         </div>
         </div>
     </body>
