@@ -1,4 +1,11 @@
  <!-- Modal -->
+ @if($errors->any())
+      {!! "<script>Swal.fire(
+        'Atencion',
+        'Rellena todos los campos',
+        'info'
+      )</script>"!!}
+      @endif
  <div class="modal fade" id="modalInsert" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

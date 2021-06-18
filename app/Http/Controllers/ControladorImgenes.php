@@ -18,6 +18,7 @@ class ControladorImgenes extends Controller
      */
     public function index()
     {
+
         $getimage = DB::table('imagenes')->get();
         return view('imagenes.crudImages',compact('getimage'));
     }
@@ -40,6 +41,10 @@ class ControladorImgenes extends Controller
      */
     public function store(Request $request)
     {
+        $request-> validate([
+            'file'=> 'required',
+            'txt-titulo'=> 'required'
+        ]);
         if($request->hasFile('file')){
             $file = $request->file('file');
             $destino = 'img/';

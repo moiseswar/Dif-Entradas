@@ -33,18 +33,18 @@
             <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#modalInsert">Nueva Imagen</button>
         </div>
     </div>
+    <br><br>
     <div class="row">
         @foreach ($getimage as $image)
         <div class="card ml-2 float-left" style="width: 18rem;">
             <img src="{{asset($image->name)}}" class="card-img-top" >
             <div class="card-body">
               <h5 class="card-title">{{$image->titulo}}</h5>
-              <h5 class="card-title">{{$image->name}}</h5>
               <p class="card-text"></p>
               <form action={{route('imagenes.destroy', $image->id)}} method="POST">
                 @csrf
                 <input type="hidden" name="name" value={{$image->name}}>
-                  <button type="submit" class="btn btn-danger">Elimianr</button>
+                  <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form> 
             </div>
         </div> 
