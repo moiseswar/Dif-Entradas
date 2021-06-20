@@ -39,10 +39,16 @@
       <div class="mb-3">
         <label class="form-label">Division</label>
         <select class="form-select" aria-label="Default select example" name="txt-division" value="{{old('txt-division')}}">
-          <option value="Recepcion">Recepcion</option>
-          <option value="Consultorio">Consultorio</option>
-          <option value="Recursos Humanos">Recursos Humanos</option>
-          <option value="Trabajo Social">Trabajo Social</option>
+          <option value="Juridico">Juridico</option>
+          <option value="Psicologico">Psicologico</option>
+          <option value="Medico Dental">Medico Dental</option>
+          <option value="Medico Nutricional">medico Nutricional</option>
+          <option value="Medico General">medico General</option>
+          <option value="Estufas Ecologicas">Estufas Ecologicas</option>
+          <option value="Apoyos Sociales">Apoyos Sociales</option>
+          <option value="Desayunos Ecolares">Desyunos Ecolares</option>
+          <option value="Apoyos Alimentarios">Apoyos Alimentarios</option>
+          <option value="Programas Preventivos">Programas Preventivos</option>
         </select>
       </div>
       <div class="m-auto mb-2 w-50">

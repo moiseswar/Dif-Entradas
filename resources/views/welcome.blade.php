@@ -33,7 +33,7 @@
       )</script>"!!}
       @endif
         
-        <div class="relative flex items-top justify-center min-h-screen   sm:items-center py-4 sm:pt-0">
+        <div class="items-top justify-center min-h-screen   sm:items-center  sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -47,49 +47,74 @@
                     @endauth
                 </div>
             @endif
-        <div class="w-100 text-center bg-light">
-            <H1>Bienvenido</H1>
-            <div class="m-auto mt-2">
-                <a href="{{ route('vstregistro')}}"><Button class="btn btn-info btn-lg">Entrar</Button></a>
-            </div>
-            <hr>
-              <div class="m-3">
-                  <div class="row">
-                      <div class="  w-50 ">
-                          <h3>Revisa los programas disponibles </h3>
-                          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                            @forelse ($getimage as $image)
-                            @if ($loop ->index ==0)active @endif
-                            <div class="carousel-item @if ($loop ->index ==0) active @endif ">
-                                <img src="{{asset($image->name)}}" class="d-block w-100 h-100" alt="...">
-                            </div>
-                  
-                            @empty
-                  
-                            @endforelse
-                  
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
-                       </div>
-                      <div class="w-50">
-                          <h3>Centros Asistenciales</h3>
-                          <div class="">
-                  
-                          </div>
+            <div class="w-100 text-center bg-light">
+                <H1>Bienvenido</H1>
+                <div class="m-auto mt-2">
+                    <a href="{{ route('vstregistro')}}"><Button class="btn btn-info btn-lg">Entrar</Button></a>
+                </div>
+                <hr>
+                  <div class="m-3">
+                      <div class="row">
+                          <div class="  w-50 ">
+                              <h3>Revisa los programas disponibles </h3>
+                              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                @forelse ($getimage as $image)
+                                @if ($loop ->index ==0)active @endif
+                                <div class="carousel-item @if ($loop ->index ==0) active @endif ">
+                                    <img src="{{asset($image->name)}}" class="d-block w-100 h-100" alt="...">
+                                </div>
+                                @empty
+                                @endforelse
+                      
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previa</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Siguiente</span>
+                                </button>
+                              </div>
+                           </div>
+                          <div class="w-50">
+                              <h3>Centros Asistenciales</h3>
+                                <div id="Controls" class="carousel slide" data-bs-ride="carousel">
+                                  <div class="carousel-inner">
+                                  @forelse ($centros as $centro)
+                                  @if ($loop ->index ==0)active @endif
+                                  <div class="carousel-item @if ($loop ->index ==0) active @endif ">
+                                    <div class="row">
+                                          <div class="card">
+                                            <div class="card-body">
+                                              <h5 class="card-title">{{$centro->nombre}}</h5>
+                                              <p class="card-text">{{$centro->Direccion}}</p>
+                                              <p class="card-text">{{$centro->Telefono}}</p>
+                                            </div>
+                                          </div>
+                                      </div> 
+                                  </div>
+                                  @empty
+                                  @endforelse
+                        
+                                  </div>
+                                  <button class="carousel-control-prev" type="button" data-bs-target="#Controls" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previa</span>
+                                  </button>
+                                  <button class="carousel-control-next" type="button" data-bs-target="#Controls" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente</span>
+                                </div>
                       </div>
                   </div>
-              </div>
+                
+            </div>
+            <br>
+            <br>
+            </div>
+            </div>
             
-        </div>
-        </div>
     </body>
 </html>

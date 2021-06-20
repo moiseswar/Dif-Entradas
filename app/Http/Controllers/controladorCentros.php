@@ -74,6 +74,9 @@ class controladorCentros extends Controller
      */
     public function edit(Request $request, $id)
     {
+        $request-> validate([
+            'txt-nombre'=> 'required',
+        ]);
         DB::table('centros')->where('id', $id)->update([
             "nombre" => $request-> input('txt-nombre'),
             "Direccion" => $request -> input('txt-domicilio'),
