@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
-use App\Models\Imagene;
-class ControladorImgenes extends Controller
+class controladorCentros extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
@@ -18,9 +17,8 @@ class ControladorImgenes extends Controller
      */
     public function index()
     {
-
-        $getimage = DB::table('imagenes')->get();
-        return view('imagenes.crudImages',compact('getimage'));
+        $getcentro = DB::table('centros')->get();
+        return view('centros.indexCentros',compact('getcentro'));
     }
 
     /**
@@ -28,9 +26,19 @@ class ControladorImgenes extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
+        $request-> validate([
+            'txt-nombre'=> 'required',
+        ]);
+        DB::table('centros')->insert([
+            "nombre" => $request -> input('txt-nombre'),
+            "Direccion" => $request -> input('txt-domicilio'),
+            "Telefono" => $request -> input('txt-telefono'),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+        return redirect('/dash/Centros')->with('exito','Guardado con Exito');
     }
 
     /**
@@ -41,25 +49,7 @@ class ControladorImgenes extends Controller
      */
     public function store(Request $request)
     {
-        $request-> validate([
-            'file'=> 'required',
-            'txt-titulo'=> 'required'
-        ]);
-        if($request->hasFile('file')){
-            $file = $request->file('file');
-            $destino = 'img/';
-            $filename = time().'-'.$file->getClientOriginalName();
-            $upload = $request->file('file')->move($destino, $filename);
-
-            DB::table('imagenes')->insert([
-            "titulo" => $request->input('txt-titulo'),
-            "name" => $destino.$filename,
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now()
-        ]);
-        };
-        
-        return redirect('/dash/Imagenes')->with('exito','guardado');
+        //
     }
 
     /**
@@ -70,7 +60,10 @@ class ControladorImgenes extends Controller
      */
     public function show($id)
     {
-        //
+        $getcentro = DB::table('centros')
+        ->where('id', $id)
+        ->first();
+        return view('centros.editar', compact('getcentro'));
     }
 
     /**
@@ -79,9 +72,15 @@ class ControladorImgenes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        DB::table('centros')->where('id', $id)->update([
+            "nombre" => $request-> input('txt-nombre'),
+            "Direccion" => $request -> input('txt-domicilio'),
+            "telefono" => $request -> input('txt-telefono') ,
+            "updated_at" => Carbon::now(),
+        ]);
+        return redirect('/dash/Centros')->with('editado','editado');
     }
 
     /**
@@ -102,14 +101,9 @@ class ControladorImgenes extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $image = Imagene::find($request->id);
-
-        unlink($image->name);
-
-        Imagene::where("id", $image->id)->delete();
-
-        return redirect('/dash/Imagenes')->with('eliminado','Eliminado');
+        DB::table('centros')->delete($id);
+        return redirect('/dash/Centros')->with('eliminado','Eliminar');
     }
 }

@@ -322,8 +322,18 @@ return [
         ],
         ['header' => 'Pagina Principal'],
         [
+            'text'        => 'Ir Paguina Principal',
+            'url'         => '/',
+            'icon'        => 'far fa-fw fa-registered',
+        ],
+        [
             'text'        => 'Control de Imagenes',
             'url'         => '/dash/Imagenes',
+            'icon'        => 'far fa-fw fa-registered',
+        ],
+        [
+            'text'        => 'Control de Centros',
+            'url'         => '/dash/Centros',
             'icon'        => 'far fa-fw fa-registered',
         ],
 

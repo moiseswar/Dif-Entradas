@@ -44,3 +44,10 @@ Route::get('/dash/RedMovil/Solicitudes','ControladorBDRedmovil@index')->name('re
 Route::get('/dash/Imagenes', 'ControladorImgenes@index')->name('imagenes.index');
 Route::post('/dash/Imagenes/Registrando', 'ControladorImgenes@store')-> name('imagenes.store');
 Route::post('/dash/Imagenes/eliminando/{id}', 'ControladorImgenes@destroy')-> name('imagenes.destroy');
+
+//Centros
+Route::get('/dash/Centros', 'controladorCentros@index')->name('centros.index');
+Route::post('/dash/Centros/Registrando', 'controladorCentros@create')->name('centros.create');
+Route::post('/dash/Centros/Editar/{id}', 'controladorCentros@show')->name('centros.show');
+Route::post('/dash/Centros/Editar/Editando/{id}', 'controladorCentros@edit')->name('centros.edit');
+Route::post('/dash/Centros/Editar/Eliminando/{id}', 'controladorCentros@destroy')->name('centros.destroy');
