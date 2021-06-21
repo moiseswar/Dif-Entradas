@@ -94,6 +94,9 @@ class ControladorBDEntradas extends Controller
     }
     public function updateComent(Request $request, $id)
     {
+        $request-> validate([
+            'txt-coments'=> 'required',
+        ]);
         DB::table('entradas')->where('id', $id)->update([
             "comentarios" => $request-> input('txt-coments'),
             "status" => $request-> input('txt-status'),

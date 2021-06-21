@@ -324,34 +324,15 @@ return [
         [
             'text'        => 'Ir Paguina Principal',
             'url'         => '/',
-            'icon'        => 'far fa-fw fa-registered',
+            'icon'        => 'far fa-fw fa-file',
         ],
         [
             'text'        => 'Control de Imagenes',
             'url'         => '/dash/Imagenes',
-            'icon'        => 'far fa-fw fa-registered',
         ],
         [
             'text'        => 'Control de Centros',
             'url'         => '/dash/Centros',
-            'icon'        => 'far fa-fw fa-registered',
-        ],
-
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 

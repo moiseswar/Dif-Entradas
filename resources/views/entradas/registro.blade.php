@@ -42,8 +42,8 @@
           <option value="Juridico">Juridico</option>
           <option value="Psicologico">Psicologico</option>
           <option value="Medico Dental">Medico Dental</option>
-          <option value="Medico Nutricional">medico Nutricional</option>
-          <option value="Medico General">medico General</option>
+          <option value="Medico Nutricional">Medico Nutricional</option>
+          <option value="Medico General">Medico General</option>
           <option value="Estufas Ecologicas">Estufas Ecologicas</option>
           <option value="Apoyos Sociales">Apoyos Sociales</option>
           <option value="Desayunos Ecolares">Desyunos Ecolares</option>

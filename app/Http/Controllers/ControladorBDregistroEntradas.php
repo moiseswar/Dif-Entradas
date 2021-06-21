@@ -39,7 +39,7 @@ class ControladorBDregistroEntradas extends Controller
             'txt-nombre'=> 'required',
             'txt-apellidoP'=> 'required',
             'txt-apellidoM'=> 'required',
-            'txt-telefono'=> 'required',
+            'txt-telefono'=> 'required|min:10',
             'txt-comunidad'=> 'required',
             'txt-motivo'=> 'required'
         ]);

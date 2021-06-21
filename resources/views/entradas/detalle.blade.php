@@ -31,8 +31,14 @@
                 <input type="number" value="2" hidden name="txt-status">
                 <textarea class="form-control h-75" id="floatingTextarea" name="txt-coments">{{$entradaInfo->comentarios}}</textarea>
                 <br>
-                <button type="submit" class="btn btn-success">Comentar</button>
+                <div class="m-auto p-auto w-25">
+                    <button type="submit" class="btn btn-success">Comentar</button>
+                </div>
             </form>
+            <div class="m-auto p-auto w-25">
+                <br>
+                <a href={{route('entradas.index')}}><button class="btn  btn-danger ">Cancelar</button></a>
+            </div>
         </div>
     </div>
     
