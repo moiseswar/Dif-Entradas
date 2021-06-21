@@ -57,7 +57,7 @@
                       <div class="row">
                           <div class="  w-50 ">
                               <h3>Revisa los programas disponibles </h3>
-                              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                              <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                 @forelse ($getimage as $image)
                                 @if ($loop ->index ==0)active @endif
@@ -80,7 +80,7 @@
                            </div>
                           <div class="w-50">
                               <h3>Centros Asistenciales</h3>
-                                <div id="Controls" class="carousel slide" data-bs-ride="carousel">
+                                <div id="Controls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                                   <div class="carousel-inner">
                                   @forelse ($centros as $centro)
                                   @if ($loop ->index ==0)active @endif

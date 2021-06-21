@@ -30,8 +30,8 @@ return [
     |
     */
 
-    'use_ico_only' => false,
-    'use_full_favicon' => false,
+    'use_ico_only' => true,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -225,7 +225,7 @@ return [
     'menu' => [
         [
             'text' => false,
-            'search' => true,
+            'search' => false,
             'topnav' => true,
         ],
         [
