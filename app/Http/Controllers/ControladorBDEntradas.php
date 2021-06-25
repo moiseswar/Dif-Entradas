@@ -25,12 +25,96 @@ class ControladorBDEntradas extends Controller
     /**funcition que entrega las entradas con diferentes
      * filtros para cada oficina
      */
-    public function entradasTrabajoSocial()
+    public function entradasPsicologico()
     {
-        $consultaEntradas = DB::table('entradas')->get()->where('Division', 'Trabajo Social');
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Psicologico');
         return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
     }
 
+
+    public function entradasJuridico()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Juridico');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasdental()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Medico Dental');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasMedicoNutricional()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Medico Nutricional');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasMedicoGeneral()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Medico General');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasEstufas()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Estufas Ecologicas');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasSociales()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Apoyos Sociales');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasDesayunos()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Desayunos Ecolares');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasAlimentarios()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Apoyos Alimentarios');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
+
+    public function entradasPreventivos()
+    {
+        $consultaEntradas = DB::table('entradas')
+        ->selectRaw('*,DATE(created_at) AS Fecha')
+        ->get()
+        ->where('Division', 'Programas Preventivos');
+        return view('trabajo_social.entradas.consultaTrabajoSocialEntadas', compact('consultaEntradas'));
+    }
     /**
      * Show the form for creating a new resource.
      *

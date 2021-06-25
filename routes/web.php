@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/' , 'ControladorImgenesget@show')->name('home');
 
+Route::get('password/reset', function () {
+    return view('auth/forgot-password');
+})->name('password.reset');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
 })->name('dash');
@@ -23,7 +27,6 @@ Route::get('/Entrada', 'ControladorBDregistroEntradas@create')->name('vstregistr
 Route::post('/Entrada/Registradno', 'ControladorBDregistroEntradas@store')-> name('entradas.store');
    //Consultas
 Route::get('/dash/Entradas','ControladorBDEntradas@index')->name('entradas.index');
-Route::get('/dash/TrabajoSocial/Entradas','ControladorBDEntradas@entradasTrabajoSocial')->name('entradas.TrabajoSocial');
 Route::post('/dash/Entradas/ActStatus/{id}','ControladorBDEntradas@update')->name('entradas.statusuptd');
 
 //Comentarios
@@ -51,3 +54,19 @@ Route::post('/dash/Centros/Registrando', 'controladorCentros@create')->name('cen
 Route::post('/dash/Centros/Editar/{id}', 'controladorCentros@show')->name('centros.show');
 Route::post('/dash/Centros/Editar/Editando/{id}', 'controladorCentros@edit')->name('centros.edit');
 Route::post('/dash/Centros/Editar/Eliminando/{id}', 'controladorCentros@destroy')->name('centros.destroy');
+
+//Filtrado para Oficina Espesifica
+Route::get('/dash/Psicologico/Entradas','ControladorBDEntradas@entradasPsicologico')->name('entradas.sicologico');
+Route::get('/dash/Juridico/Entradas','ControladorBDEntradas@entradasJuridico')->name('entradas.juridico');
+Route::get('/dash/Medico Dental/Entradas','ControladorBDEntradas@entradasdental')->name('entradas.dental');
+Route::get('/dash/Medico Nutricional/Entradas','ControladorBDEntradas@entradasMedicoNutricional')->name('entradas.nutricional');
+Route::get('/dash/Medico General/Entradas','ControladorBDEntradas@entradasMedicoGeneral')->name('entradas.general');
+Route::get('/dash/Estufas/Entradas','ControladorBDEntradas@entradasEstufas')->name('entradas.estufas');
+Route::get('/dash/Apoyos Sociales/Entradas','ControladorBDEntradas@entradasSociales')->name('entradas.sociales');
+Route::get('/dash/Desayunos Escolares/Entradas','ControladorBDEntradas@entradasDesayunos')->name('entradas.Desayunos');
+Route::get('/dash/Apoyos Alimentarios/Entradas','ControladorBDEntradas@entradasAlimentarios')->name('entradas.Alimentarios');
+Route::get('/dash/Programas Preventivos/Entradas','ControladorBDEntradas@entradasPreventivos')->name('entradas.Alimentarios');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

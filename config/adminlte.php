@@ -192,7 +192,7 @@ return [
     'register_url' => 'register',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -272,7 +272,107 @@ return [
                 ],
                 [
                     'text' => 'Entradas',
-                    'url'  => '/dash/TrabajoSocial/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Psicologico',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Psicologico/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Juridico',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Juridico/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Medico Dental',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Medico Dental/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Medico Nutricional',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Medico Nutricional/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Medico General',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Medico General/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Estufas Ecologicas',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Estufas/Entradas',
+                ],
+            ],
+        ],
+        
+        [
+            'text'    => 'Desayunos Escolares',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Desayunos Escolares/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Apoyos Sociales',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Apoyos Sociales/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Apoyos Alimentarios',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Apoyos Alimentarios/Entradas',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Programas Preventivos',
+            'icon'    => 'far fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Entradas',
+                    'url'  => '/dash/Programas Preventivos/Entradas',
                 ],
             ],
         ],
@@ -282,44 +382,7 @@ return [
             'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-file',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
+        
         ['header' => 'Pagina Principal'],
         [
             'text'        => 'Ir Paguina Principal',

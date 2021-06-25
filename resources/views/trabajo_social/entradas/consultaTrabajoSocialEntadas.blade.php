@@ -26,6 +26,7 @@
         <th scope="col">Comunidad</th>
         <th scope="col">Motivo</th>
         <th scope="col">Fecha</th>
+        <th scope="col">Comentarios</th>
         <th scope="col">Estado</th>
       </tr>
     </thead>
@@ -40,7 +41,8 @@
         <td>{{$Entradas->telefono}}</td>
         <td>{{$Entradas->comunidad}}</td>
         <td>{{$Entradas->motivo}}</td>
-        <td>{{$Entradas->created_at}}</td>
+        <td>{{$Entradas->Fecha}}</td>
+        <td>{{$Entradas->comentarios}}</td>
         @if ($Entradas->status == 1)
             <td style="background-color: rgb(248, 114, 114);" class="text-center">
 

@@ -2,6 +2,10 @@
 
 @section('title', 'Dashboard')
 
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
 @section('content')
 <x-app-layout>
     <x-slot name="header">
@@ -48,4 +52,12 @@
         </div>
     </div>
 </x-app-layout>
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
 @stop
