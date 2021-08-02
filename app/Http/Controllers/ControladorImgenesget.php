@@ -48,7 +48,8 @@ class ControladorImgenesget extends Controller
     {
         $getimage = DB::table('imagenes')->get();
         $centros = DB::table('centros')->get();
-        return view('welcome', compact('getimage','centros'));
+        $gethorario = DB::table('horarios')->get();
+        return view('welcome', compact('getimage','centros', 'gethorario'));
     }
 
     /**

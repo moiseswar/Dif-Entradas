@@ -397,6 +397,10 @@ return [
             'text'        => 'Control de Centros',
             'url'         => '/dash/Centros',
         ],
+        [
+            'text'        => 'Horarios Medicos',
+            'url'         => '/dash/Horarios',
+        ],
     ],
 
     /*

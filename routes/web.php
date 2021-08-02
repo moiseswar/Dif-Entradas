@@ -17,7 +17,7 @@ Route::get('/' , 'ControladorImgenesget@show')->name('home');
 
 Route::get('password/reset', function () {
     return view('auth/forgot-password');
-})->name('password.reset');
+})->name('password.reset2');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
@@ -66,6 +66,12 @@ Route::get('/dash/Apoyos Sociales/Entradas','ControladorBDEntradas@entradasSocia
 Route::get('/dash/Desayunos Escolares/Entradas','ControladorBDEntradas@entradasDesayunos')->name('entradas.Desayunos');
 Route::get('/dash/Apoyos Alimentarios/Entradas','ControladorBDEntradas@entradasAlimentarios')->name('entradas.Alimentarios');
 Route::get('/dash/Programas Preventivos/Entradas','ControladorBDEntradas@entradasPreventivos')->name('entradas.Alimentarios');
+
+Route::get('dash/Horarios', 'controlardorHorarios@index')->name('horarios.index');
+Route::post('/dash/Horarios/almacenando' , 'controlardorHorarios@store')->name('horarios.store');
+Route::get('/dash/Horarios/Editar/{id}', 'controlardorHorarios@show')->name('horarios.edit');
+Route::post('/dash/Horarios/Editando/{id}', 'controlardorHorarios@update')->name('horarios.update');
+Route::post('/dash/Horarios/Eliminando/{id}', 'controlardorHorarios@destroy')->name('horarios.delete');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

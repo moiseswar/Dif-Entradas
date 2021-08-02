@@ -49,7 +49,37 @@
             @endif
             <div class="w-100 text-center bg-light">
                 <H1>Bienvenido</H1>
+                <div class="continer w- m-auto">
+                  <div class="w-75 m-auto">
+                    <div class="row ">
+                    @foreach ($gethorario as $horario)
+                    
+                              <div class="col">
+                                  <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">Dr. {{$horario->nombre}}</h5>
+                        <p class="card-text">Area: {{$horario->area}}</p>
+                        <p class="card-text">Dias Disponibles: {{$horario->dias}}</p>
+                        <p class="card-text">Horario</p>
+                        <div class="row">
+                            <div class="col">
+                                <input type="time" name="" id="" value="{{$horario->inicio}}" class="form-control" readonly>
+                              </div>
+                          <div class="col">
+                              <input type="time" name="" id="" value="{{$horario->fin}}" class="form-control" readonly>
+                          </div>
+                        </div>
+                        <br>
+                      </div>
+                    </div>
+                              </div>
+                    
+                            @endforeach
+                          </div>
+                  </div>
+                </div>
                 <div class="m-auto mt-2">
+                  <h1>Registrar entradas</h1>
                     <a href="{{ route('vstregistro')}}"><Button class="btn btn-info btn-lg">Entrar</Button></a>
                 </div>
                 <hr>

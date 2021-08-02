@@ -84,7 +84,7 @@
     {{-- Password reset link --}}
  
         <p class="my-0">
-            <form action={{route('password.reset')}} method="GET">
+            <form action={{route('password.reset2')}} method="GET">
                 @csrf
                 <button type="submit" class="btn btn-info">Restaurar Contraseña</button>
             </form>
